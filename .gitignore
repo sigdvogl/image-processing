@@ -1,0 +1,6 @@
+# Files
+.idea
+
+# Folders
+images/**/
+node_modules/

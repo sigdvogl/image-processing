@@ -1,0 +1,28 @@
+{
+  "name": "image-convert",
+  "version": "0.0.1",
+  "description": "image convertion kit via imagemagick on mac",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sigdvogl/"
+  },
+  "keywords": [
+    "images",
+    "imagemagic"
+  ],
+  "author": {
+    "name": "Dominic Vogl"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/sigdvogl/",
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-changed": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-rename": "latest",
+    "gulp-image-resize": "^0.12.0"
+  },
+  "devDependencies": {
+    "gulp-watch": "^4.3.11"
+  }
+}
