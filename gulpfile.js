@@ -5,10 +5,14 @@ var changed = require('gulp-changed'),
     rename = require('gulp-rename'),
     imageResize = require('gulp-image-resize'),
     imagemin = require ('gulp-imagemin'),
+    plumber = require ('gulp-plumber')
     watch = require('gulp-watch');
 
 // Pfade festlegen
-var imgSrc = 'images/300dpi/**/*',
+var imgSrc = [
+        'images/300dpi/**/*.jpg',
+        'images/300dpi/**/*.jpeg'
+    ],
     imgDst = 'images/';
 
 var defaultTasks = [
@@ -25,10 +29,11 @@ gulp.task('images', function() {
 });
 
 
-gulp.task('watchi', function() {
+gulp.task('watch', function() {
     gulp.watch(imgSrc)
         .on('change', function(file) {
             gulp.src(file.path)
+                .pipe(plumber())
                 .pipe(imageResize({
                     width : 250,
                     height : 250,
@@ -40,6 +45,7 @@ gulp.task('watchi', function() {
                 .pipe(gulp.dest(imgDst + '250x250/'));
 
             gulp.src(file.path)
+                .pipe(plumber())
                 .pipe(imageResize({
                     width : 2000,
                     height : 2000,
