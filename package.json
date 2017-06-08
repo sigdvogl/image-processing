@@ -16,13 +16,11 @@
   "license": "MIT",
   "homepage": "https://github.com/sigdvogl/",
   "dependencies": {
-    "gulp": "^3.8.11",
-    "gulp-changed": "latest",
-    "gulp-imagemin": "latest",
-    "gulp-rename": "latest",
-    "gulp-image-resize": "^0.12.0"
-  },
-  "devDependencies": {
+    "gulp": "~3.8.11",
+    "gulp-changed": "~3.1.0",
+    "gulp-imagemin": "~3.3.0",
+    "gulp-rename": "~1.2.2",
     "gulp-watch": "^4.3.11"
+    "gulp-image-resize": "~0.12.0"
   }
 }
