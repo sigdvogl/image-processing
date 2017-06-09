@@ -16,8 +16,7 @@ var imgSrc = [
     imgDst = 'images/';
 
 var defaultTasks = [
-    'thumb',
-    'large'
+    'watch'
 ];
 
 gulp.task('default', defaultTasks);
@@ -39,7 +38,10 @@ gulp.task('watch', function() {
                     height : 250,
                     crop : false,
                     upscale : false,
-                    imageMagick: true
+                    imageMagick: true,
+                    quality: 0.75,
+                    sharpen: true,
+                    noProfile: true
                 }))
                 .pipe(imagemin())
                 .pipe(gulp.dest(imgDst + '250x250/'));
@@ -51,7 +53,9 @@ gulp.task('watch', function() {
                     height : 2000,
                     crop : false,
                     upscale : false,
-                    imageMagick: true
+                    imageMagick: true,
+                    quality: 0.9,
+                    noProfile: true
                 }))
                 .pipe(imagemin())
                 .pipe(gulp.dest(imgDst + '2000x2000/'));
