@@ -106,3 +106,15 @@ gulp.task('large', resize(imgSrc, imgDst + '2000x2000', {
     noProfile: true
 }));
 
+gulp.task('full', function() {
+
+    gulp.src(imgSrc)
+        .pipe(plumber())
+        .pipe(parallel(
+            imagemin(),
+            os.cpus().length
+        ))
+        // .pipe(rename({suffix: '-large'}))
+        .pipe(gulp.dest(imgSrc))
+
+});
