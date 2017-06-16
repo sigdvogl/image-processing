@@ -6,10 +6,10 @@
 # konf: choose konf folders
 # spw: choose spw folders
 
-if [ "$2" = "konf" ]; then
+if [ "$1" = "konf" ]; then
     ITEMTYPE="Konf_"
 
-elif [ "$2" = "spw" ]; then
+elif [ "$1" = "spw" ]; then
     ITEMTYPE="Spw_"
 
 else
@@ -18,7 +18,8 @@ else
 fi
 
 # Target for Logfile
-LOGFILE="/Users/vogl/Library/Logs/Image_Convert/image_convert.log"
+LOGFILE="image_convert.log"
+LOGFILEPATH="/Users/vogl/Library/Logs/Image_Convert/${LOGFILE}"
 
 # create Timestamp
 TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
@@ -43,27 +44,22 @@ CopyFiles() {
 
         mkdir -p "$TARGET"
 
-       cp ${SOURCE}/$i ${TARGET}/$i 2>> $LOGFILE
-       echo "[$TIMESTAMP] copied file $i from $SOURCE/ to $TARGET/" >> $LOGFILE
+       cp ${SOURCE}/$i ${TARGET}/$i 2>> $LOGFILEPATH
+       echo "[$TIMESTAMP] copied file $i from $SOURCE/ to $TARGET/"
+       echo "[$TIMESTAMP] copied file $i from $SOURCE/ to $TARGET/" >> $LOGFILEPATH
 
     done
     }
 
 # start logging
-echo "[$TIMESTAMP] Start moving images..." >> $LOGFILE
+echo "[$TIMESTAMP] Start moving images..." >> $LOGFILEPATH
 
 
 # read file list and do
 cat list.txt | while read i; do
-
-# copy files from src to dest and log
-if [ "$1" = "cp" ]
-then
     CopyFiles
+    done
 
-# move files from src to dest and log
-else
-    MoveFiles
-fi
-
-done
+# Copy logfile to target folder
+echo "Copy logfile..."
+cp $LOGFILEPATH "$BASEDEST/$LOGFILE"
