@@ -36,6 +36,7 @@ declare -a arrFolders=("250x250" "2000x2000")
 CopyFiles() {
 
     ## now loop through the above array
+    echo "[$TIMESTAMP] copied file $i from..." >> $LOGFILEPATH
     for fold in "${arrFolders[@]}"
     do
 
@@ -46,7 +47,7 @@ CopyFiles() {
 
        cp ${SOURCE}/$i ${TARGET}/$i 2>> $LOGFILEPATH
        echo "[$TIMESTAMP] copied file $i from $SOURCE/ to $TARGET/"
-       echo "[$TIMESTAMP] copied file $i from $SOURCE/ to $TARGET/" >> $LOGFILEPATH
+       echo "[$TIMESTAMP] $SOURCE/ to $TARGET/" >> $LOGFILEPATH
 
     done
     }
