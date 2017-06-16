@@ -55,12 +55,12 @@ CopyFiles() {
 # start logging
 echo "[$TIMESTAMP] Start moving images..." >> $LOGFILEPATH
 
-
 # read file list and do
 cat list.txt | while read i; do
     CopyFiles
     done
 
 # Copy logfile to target folder
+echo "... done" >> $LOGFILEPATH
 echo "Copy logfile..."
 cp $LOGFILEPATH "$BASEDEST/$LOGFILE"
