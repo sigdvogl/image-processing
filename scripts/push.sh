@@ -26,11 +26,18 @@ TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 
 # Basepath
 BASESRC="../images"
+
+# Destination for image master
 #BASEDEST="/Volumes/Bilddaten/master"
-BASEDEST="../images/target"
+
+# Destination for Navision images
+BASEDEST="/Volumes/Bilddaten/Konf"
 
 # declare folders with images
-declare -a arrFolders=("250x250" "2000x2000")
+# all master images
+declare -a arrFolders=("250x250" "2000x2000" "300dpi")
+# Navision only
+# declare -a arrFolders=("250x250")
 
 # shell functions
 CopyFiles() {
@@ -41,7 +48,12 @@ CopyFiles() {
     do
 
         SOURCE=${BASESRC}/${fold}
+
+        # Target for master image folders
         TARGET=${BASEDEST}/${ITEMTYPE}${fold}
+
+        # Target for Navision image folder
+        # TARGET=${BASEDEST}
 
         mkdir -p "$TARGET"
 
