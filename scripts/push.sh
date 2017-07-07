@@ -17,27 +17,30 @@ else
     break
 fi
 
-# Target for Logfile
-LOGFILE="image_convert.log"
-LOGFILEPATH="/Users/vogl/Library/Logs/Image_Convert/${LOGFILE}"
-
 # create Timestamp
 TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+FILESTAMP=`date "+%Y-%m-%d_%H-%M-%S"`
+
+# Target for Logfile
+touch ${FILESTAMP}-image_convert.log
+LOGFILE="${FILESTAMP}-image_convert.log"
+LOGFILEPATH="/Users/vogl/Library/Logs/Image_Convert/${LOGFILE}"
+
 
 # Basepath
 BASESRC="../images"
 
 # Destination for image master
-#BASEDEST="/Volumes/Bilddaten/master"
+BASEDEST="/Volumes/Bilddaten/master"
 
 # Destination for Navision images
-BASEDEST="/Volumes/Bilddaten/Konf"
+#BASEDEST="/Volumes/Bilddaten/Konf"
 
 # declare folders with images
 # all master images
-declare -a arrFolders=("250x250" "2000x2000" "300dpi")
+declare -a arrFolders=("250x250" "800x600" "2000x2000" "300dpi")
 # Navision only
-# declare -a arrFolders=("250x250")
+#declare -a arrFolders=("250x250")
 
 # shell functions
 CopyFiles() {
@@ -53,7 +56,7 @@ CopyFiles() {
         TARGET=${BASEDEST}/${ITEMTYPE}${fold}
 
         # Target for Navision image folder
-        # TARGET=${BASEDEST}
+#         TARGET=${BASEDEST}
 
         mkdir -p "$TARGET"
 
@@ -75,4 +78,4 @@ cat list.txt | while read i; do
 # Copy logfile to target folder
 echo "... done" >> $LOGFILEPATH
 echo "Copy logfile..."
-cp $LOGFILEPATH "$BASEDEST/$LOGFILE"
+cp $LOGFILEPATH "$BASEDEST/logs/$LOGFILE"
