@@ -22,8 +22,8 @@ TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 FILESTAMP=`date "+%Y-%m-%d_%H-%M-%S"`
 
 # Target for Logfile
-touch ${FILESTAMP}-image_convert.log
 LOGFILE="${FILESTAMP}-image_convert.log"
+touch /Users/vogl/Library/Logs/Image_Convert/${LOGFILE}
 LOGFILEPATH="/Users/vogl/Library/Logs/Image_Convert/${LOGFILE}"
 
 
