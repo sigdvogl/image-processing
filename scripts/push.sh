@@ -55,8 +55,8 @@ CopyFiles() {
         # Target for master image folders
         TARGET=${BASEDEST}/${ITEMTYPE}${fold}
 
-        # Target for Navision image folder
-#         TARGET=${BASEDEST}
+        # Tfarget for Navision image folder
+        # TARGET=${BASEDEST}
 
         mkdir -p "$TARGET"
 
