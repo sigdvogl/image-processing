@@ -1,30 +1,19 @@
 {
   "name": "image-convert",
-  "version": "0.0.1",
-  "description": "image convertion kit via imagemagick on mac",
+  "version": "0.0.2",
+  "description": "image pull and push script",
   "repository": {
     "type": "git",
     "url": "https://github.com/sigdvogl/"
   },
   "keywords": [
     "images",
-    "imagemagic"
+    "shell",
+    "bash"
   ],
   "author": {
     "name": "Dominic Vogl"
   },
   "license": "MIT",
-  "homepage": "https://github.com/sigdvogl/",
-  "dependencies": {
-    "concurrent-transform": "^1.0.0",
-    "gulp": "~3.8.11",
-    "gulp-changed": "~3.1.0",
-    "gulp-image-resize": "~0.12.0",
-    "gulp-imagemin": "~3.3.0",
-    "gulp-logger": "0.0.2",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rename": "~1.2.2",
-    "gulp-watch": "^4.3.11",
-    "os": "^0.1.1"
-  }
+  "homepage": "https://github.com/sigdvogl/"
 }
